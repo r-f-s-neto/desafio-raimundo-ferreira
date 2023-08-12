@@ -24,11 +24,11 @@ class CaixaDaLanchonete {
     if (!verificarItensExtras(itensEQuantidades)) {
       return "Item extra não pode ser pedido sem o principal";
     }
-    if (!verificarQuantidade(itensEQuantidades)) {
-      return "Quantidade inválida!";
-    }
     if (!verificarItens(cardapio, itensEQuantidades)) {
       return "Item inválido!";
+    }
+    if (!verificarQuantidade(itensEQuantidades)) {
+      return "Quantidade inválida!";
     }
     if (!verificarFormaDePagamento(metodoDePagamento)) {
       return "Forma de pagamento inválida!";
@@ -41,11 +41,5 @@ class CaixaDaLanchonete {
     return "R$ " + total.toFixed(2).replace(".", ",");
   }
 }
-
-const resp = CaixaDaLanchonete.prototype.calcularValorDaCompra("credito", [
-  "combo1,1",
-  "cafe,2",
-]);
-console.log(resp);
 
 export { CaixaDaLanchonete };
